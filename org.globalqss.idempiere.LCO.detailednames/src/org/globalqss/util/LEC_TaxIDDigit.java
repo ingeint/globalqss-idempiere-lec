@@ -52,7 +52,7 @@ public class LEC_TaxIDDigit implements ILCO_TaxIDDigit {
 			throw new AdempiereException(Msg.getMsg(Env.getCtx(), "LCO_NotANumber"));
 		}
 		int provincia = Integer.parseInt(taxID.substring(0, 2));
-		if (provincia < 1 || provincia > 24) {
+		if ((provincia < 1 || provincia > 24) && provincia != 30) {
 			throw new AdempiereException(Msg.getMsg(Env.getCtx(), "LEC_WrongProvince"));
 		}
 		int tipo = Integer.parseInt(taxID.substring(2, 3));
@@ -68,6 +68,13 @@ public class LEC_TaxIDDigit implements ILCO_TaxIDDigit {
 			coeficientes = new Integer[] {2,1,2,1,2,1,2,1,2};
 			break;
 		case 6:
+			if (taxID.length()==10) {
+				longconsec = 6; // natural
+				tipopersona = NATURAL;
+				mod = 10;
+				coeficientes = new Integer[] {2,1,2,1,2,1,2,1,2};
+				break;
+			}                       
 			longconsec = 5; // publica
 			tipopersona = PUBLICA;
 			mod = 11;
