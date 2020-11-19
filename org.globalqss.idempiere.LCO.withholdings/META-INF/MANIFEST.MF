@@ -20,3 +20,4 @@ Bundle-ClassPath: .
 Automatic-Module-Name: org.globalqss.idempiere.LCO.withholdings
 Comment: Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version>=1.11))"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
