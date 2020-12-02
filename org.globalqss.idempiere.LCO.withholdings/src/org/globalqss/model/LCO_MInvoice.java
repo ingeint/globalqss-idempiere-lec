@@ -355,7 +355,7 @@ public class LCO_MInvoice extends MInvoice
 					int stdPrecision = MPriceList.getStandardPrecision(getCtx(), getM_PriceList_ID());
 					BigDecimal taxamt = tax.calculateTax(base, false, stdPrecision);
 					if (wc.getAmountRefunded() != null &&
-							wc.getAmountRefunded().compareTo(Env.ZERO) > 0) {
+							wc.getAmountRefunded().compareTo(Env.ZERO) >= 0) {
 						taxamt = taxamt.subtract(wc.getAmountRefunded());
 					}
 					iwh.setTaxAmt(taxamt);
